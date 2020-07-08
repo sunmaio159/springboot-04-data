@@ -20,4 +20,22 @@ public class JDDBCController {
         System.out.println(maps);
         return maps;
     }
+    @RequestMapping("/addUser")
+    public String addUser(){
+        String sql = "insert into user(name,pwd) values('赵六','123')";
+        jdbcTemplate.update(sql);
+        return "add-Ok";
+    }
+    @RequestMapping("/deleteUser")
+    public String deleteUser(){
+        String sql = "delete from user where id='4' ";
+        jdbcTemplate.execute(sql);
+        return "delete-Ok";
+    }
+    @RequestMapping("/updateUser")
+    public String updateUser(){
+        String sql = "update user set name='赵六六' , pwd='长沙市水水水水' where id='4' ";
+        jdbcTemplate.execute(sql);
+        return "update-Ok";
+    }
 }
